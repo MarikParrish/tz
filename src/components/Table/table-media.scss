@@ -93,5 +93,20 @@
 }
 
 @media (max-width:576px){
+    .table{
+        &__header{
+            grid-template-columns: 5% 37% 30% calc(28% - 6px);
+        }
+        &__body{
+            grid-template-columns: calc(100% + 20px);
+            &-line{
+                grid-template-columns: 5% 37% 30% calc(28% - 6px);
+            }
+        }
+    }
 
+    .table__body::-webkit-scrollbar {
+        width: 20px;
+        margin-left: 10px;
+    }
 }
