@@ -93,14 +93,50 @@
 }
 
 @media (max-width:576px){
+
+    .header{
+        padding:20px 20px 0 20px;
+        margin:0;
+
+        &__title{
+            padding-left: 0;
+        }
+
+        &__icon{
+            padding-left: 0;
+        }
+    }
+
+
     .table{
         &__header{
             grid-template-columns: 5% 37% 30% calc(28% - 6px);
+            &-block{
+                font-size: 11px;
+            }
         }
         &__body{
             grid-template-columns: calc(100% + 20px);
             &-line{
                 grid-template-columns: 5% 37% 30% calc(28% - 6px);
+            }
+            &-block{
+                font-size: 13px;
+                padding:8px 0px 8px 2px;
+            }
+        }
+    }
+
+    .info{
+        font-size:13px;
+        padding:0 10px;
+    }
+
+    .btns{
+        button{
+            width: 105px;
+            &:nth-child(3){
+                width: 105px;
             }
         }
     }

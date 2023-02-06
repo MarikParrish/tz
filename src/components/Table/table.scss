@@ -63,7 +63,8 @@
         display: grid;
         overflow-x: hidden;
         grid-template-columns: calc(100% + 30px);
-        min-height:180px;
+        min-height:250px;
+        max-height:250px;
 
         &-line{
             display: grid;

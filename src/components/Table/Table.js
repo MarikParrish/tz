@@ -97,9 +97,37 @@ const Table = () => {
                                     </div>
                                 </>
                             )
-                        }) : null}
+                        }) :
+                            <>
+                                <div className="table__body-line">
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                </div>
 
-                        {data != null ? (data.length < 8 ? fillEmpty() : null) : null}
+                                <div className="table__body-line">
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                </div>
+
+                                <div className="table__body-line">
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                </div>
+                                
+                                <div className="table__body-line">
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                    <div className="table__body-block"></div>
+                                </div>
+                            </>
+                        }
                     </div>
                 </div>
 
