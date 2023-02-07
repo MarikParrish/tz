@@ -41,7 +41,7 @@
     row-gap: 2px;
     &__header{
         display:grid;
-        grid-template-columns: 3% 40% 25% calc(32% - 6px) ;
+        grid-template-columns: 10% 14% 40% calc(36% - 6px);
         grid-template-rows: 25px;
         font-weight: bold;
         color:#fff;
@@ -68,8 +68,9 @@
 
         &-line{
             display: grid;
+            word-wrap: break-word;
             gap:2px;
-            grid-template-columns:3% 40% 25% calc(32% - 6px) ;
+            grid-template-columns:10% 14% 40% calc(36% - 6px) ;
             grid-template-rows:auto;
             &:nth-child(2n){
                 div{

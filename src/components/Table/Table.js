@@ -8,7 +8,10 @@ import { useState, useEffect } from 'react';
 const Table = () => {
 
     const [data, setData] = useState(null);
-    const requestURL = 'http://localhost:3001/data';
+
+
+    const requestURL = 'http://localhost/api/test';
+
 
 
     const responseTime = 5000;
@@ -38,32 +41,26 @@ const Table = () => {
         })
     }
 
+    sendRequest('GET', requestURL);
+
 
     useEffect(() => {
         sendRequest('GET', requestURL)
-            .then(data => setData(data))
+            .then(data => setData(data.sort((a,b)=>{
+                return a.id - b.id;
+            })))
             .catch(err => console.log('error'));
         setInterval(() => {
             sendRequest('GET', requestURL)
-                .then(data => setData(data));
+                .then(data => setData(data.sort((a,b)=>{
+                    return a.id - b.id;
+                })));
         }, responseTime)
     }, [])
 
 
-    const fillEmpty = () => {
-        return (
-            <>
-                <div className="table__body-line">
-                    <div className="table__body-block"></div>
-                    <div className="table__body-block"></div>
-                    <div className="table__body-block"></div>
-                    <div className="table__body-block"></div>
-                </div>
-            </>
-        )
-    }
 
-
+    
     return (
         <>
 
