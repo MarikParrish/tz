@@ -12,48 +12,70 @@ const Table = ({toggleTheme}) => {
 
     const requestURL = 'http://localhost/api/test';
 
-    const responseTime = 9999999999;
-
-    function sendRequest(method, url) {
-        return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
+    const responseTime = 5000;
 
 
-            xhr.open(method, url);
-
-            xhr.responseType = 'json';
-
-            xhr.onload = () => {
-                if (xhr.status >= 400) {
-                    reject(xhr.response);
-                } else {
-                    resolve(xhr.response);
-                }
-            }
-
-            xhr.onerror = () => {
-                reject(xhr.response);
-            }
-
-            xhr.send();
-        })
+    function sendRequest(url){
+        fetch(url)
+            .then((response)=>response.json())
+            .then((data)=>setData(data.sort((a,b)=>{
+                return a.id - b.id;
+            })))
     }
 
-    sendRequest('GET', requestURL);
+
+
+    // XMLHttpRequest
+
+    // function sendRequest(method, url) {
+    //     return new Promise((resolve, reject) => {
+    //         const xhr = new XMLHttpRequest();
+
+
+    //         xhr.open(method, url);
+
+    //         xhr.responseType = 'json';
+
+    //         xhr.onload = () => {
+    //             if (xhr.status >= 400) {
+    //                 reject(xhr.response);
+    //             } else {
+    //                 resolve(xhr.response);
+    //             }
+    //         }
+
+    //         xhr.onerror = () => {
+    //             reject(xhr.response);
+    //         }
+
+    //         xhr.send();
+    //     })
+    // }
 
 
     useEffect(() => {
-        sendRequest('GET', requestURL)
-            .then(data => setData(data.sort((a, b) => {
-                return a.id - b.id;
-            })))
-            .catch(err => console.log('error'));
-        setInterval(() => {
-            sendRequest('GET', requestURL)
-                .then(data => setData(data.sort((a, b) => {
-                    return a.id - b.id;
-                })));
-        }, responseTime)
+
+        sendRequest(requestURL)
+        setInterval(()=>{
+            sendRequest(requestURL);
+        },responseTime)
+
+
+
+
+        // XMLHttpRequest
+
+        // sendRequest('GET', requestURL)
+        //     .then(data => setData(data.sort((a, b) => {
+        //         return a.id - b.id;
+        //     })))
+        //     .catch(err => console.log('error'));
+        // setInterval(() => {
+        //     sendRequest('GET', requestURL)
+        //         .then(data => setData(data.sort((a, b) => {
+        //             return a.id - b.id;
+        //         })));
+        // }, responseTime)
     }, [])
 
 
